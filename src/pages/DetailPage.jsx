@@ -79,6 +79,12 @@ export default function DetailPage() {
           </Button>
         </div>
 
+        <div data-cy='todo-empty-state' className='flex justify-center'>
+          <img 
+            src='/images/todo-empty-state.svg' 
+            alt='todo-empty-state' 
+            className='w-[620px]' />
+        </div>
       </div>    
     </div>
   )
