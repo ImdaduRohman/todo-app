@@ -76,7 +76,7 @@ export default function ModalDelete({
                 <div data-cy='modal-delete-title' className="text-lg leading-[27px] font-medium text-center">
                   <div>Apakah anda yakin menghapus activity</div>
                   {
-                    isLoading ? <FullLoading /> : <div className="font-bold">“{detailActivity?.title}</div>
+                    isLoading ? <FullLoading /> : <div className="font-bold">“{detailActivity?.title}“</div>
                   }
                 </div>
                 <div className="flex items-center justify-center gap-3 px-4 py-4">

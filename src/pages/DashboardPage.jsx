@@ -114,10 +114,13 @@ export default function DashboardPage() {
                   </div> 
                 ) : (
                   <div data-cy='activity-empty-state' className='flex justify-center'>
-                    <img 
-                      src='/images/activity-empty-state.svg' 
-                      alt='empty-state' 
-                      className='w-[620px]' />
+                    <button onClick={handleAddActivity}>
+                      <img 
+                        src='/images/activity-empty-state.svg' 
+                        alt='empty-state' 
+                        className='w-[620px]'
+                      />
+                    </button>
                   </div>
                 )
               }

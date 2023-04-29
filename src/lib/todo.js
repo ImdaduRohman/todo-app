@@ -24,3 +24,8 @@ export const deleteTodo = async (id) => await axios
   .delete(`${BASE_URL}/todo-items/${id}`)
   .then((res) => res.data)
   .catch((err) => err);
+
+export const postTodo = async (data) => await axios
+  .post(`${BASE_URL}/todo-items`, data, {
+  })
+  .then((res) => res.data);

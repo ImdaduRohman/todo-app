@@ -54,7 +54,7 @@ export default function Button({
       disabled={disabled}
       onClick={(e) => onClick(e)}
       type={type}
-      className={`text-lg leading-[27px] py-3 px-10 font-semibold items-center justify-between rounded-full ring-1 focus:outline-none focus-visible:ring-2 disabled:bg-slate-300 disabled:text-slate-500 disabled:ring-slate-300 ${
+      className={`text-lg leading-[27px] py-3 px-10 font-semibold items-center justify-between rounded-full ring-1 focus:outline-none focus-visible:ring-2 disabled:opacity-20 ${
         fullWidth ? 'flex w-full' : 'inline-flex'
       } ${className} ${variantClass()}`}
       {...props}

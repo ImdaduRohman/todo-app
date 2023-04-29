@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import { getAllTodo, updateTodo } from "../lib/todo";
 import FullLoading from "../components/FullLoading";
 import ModalDeleteTodo from "../components/ModalDeleteTodo";
+import ModalAddTodo from "../components/ModalAddTodo";
 
 const getPriority = (priority) => {
   if(priority === 'very-high') return '/images/priority-very-high.svg'
@@ -106,7 +107,7 @@ export default function DetailPage() {
             data-cy='activity-add-button' 
             variant="primary" 
             className='w-[176px] h-[54px]' 
-            // onClick={handleAddActivity}
+            onClick={() => setIsModalOpen({ status: true, type: 'addTodo' })}
           >
             {/* {mutation.isLoading ? <FullLoading /> : "+ Tambah"} */}
             + Tambah
@@ -143,17 +144,20 @@ export default function DetailPage() {
                           className='self-end'
                           onClick={() => handleDeleteTodo(item.id)}
                         >
-                          <img src='/images/delete.svg' alt='edit-todo' className='w-5 h-5' />
+                          <img src='/images/delete.svg' alt='edit-todo' className='w-5 h-5 hover:opacity-70' />
                         </button>
                       </div>
                     )))}
                   </div> 
                 ) : (
                   <div data-cy='todo-empty-state' className='flex justify-center'>
-                    <img 
-                      src='/images/todo-empty-state.svg' 
-                      alt='todo-empty-state' 
-                      className='w-[620px]' />
+                    <button onClick={() => setIsModalOpen({ status: true, type: 'addTodo' })}>
+                      <img 
+                        src='/images/todo-empty-state.svg' 
+                        alt='todo-empty-state' 
+                        className='w-[620px]'
+                      />
+                    </button>
                   </div>
                 )
               }
@@ -166,8 +170,12 @@ export default function DetailPage() {
         isOpen={isModalOpen.status && isModalOpen.type === 'deleteTodo' && selectedTodo !== null}
         onClose={() => setIsModalOpen({ status: false, type: '' })}
         idActivity={selectedTodo}
-        // respons={handleDeleteSuccess}
-        />
+      />
+      <ModalAddTodo
+        isOpen={isModalOpen.status && isModalOpen.type === 'addTodo'}
+        onClose={() => setIsModalOpen({ status: false, type: '' })}
+        idActivity={id}
+      />
     </div>
   )
 }
