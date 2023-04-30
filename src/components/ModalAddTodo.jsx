@@ -55,6 +55,7 @@ export default function ModalAddTodo({
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
+        data-cy='modal-add' 
         as="div"
         className="relative z-50"
         onClose={onClose}

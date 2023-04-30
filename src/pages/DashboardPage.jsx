@@ -81,7 +81,7 @@ export default function DashboardPage() {
                   <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5'>
                     {allActivity?.data.length && (allActivity.data.map((item, index) => (
                       <div 
-                        data-cy={`activity-item-${index}`}
+                        data-cy='activity-item'
                         key={index}
                         className='h-[235px] bg-white flex flex-col justify-between p-6 rounded-lg shadow-md'
                       >
@@ -95,7 +95,7 @@ export default function DashboardPage() {
                         </Link>
                         <div className='flex justify-between'>
                           <div 
-                            data-cy='ctivity-item-date'
+                            data-cy='activity-item-date'
                             className='text-sm leding-[21px] text-[#888888] font-medium'
                           >
                             {formatDate(item.created_at)}

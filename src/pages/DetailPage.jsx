@@ -104,7 +104,7 @@ export default function DetailPage() {
             </label>
           </form>
           <Button 
-            data-cy='activity-add-button' 
+            data-cy='todo-add-button' 
             variant="primary" 
             className='w-[176px] h-[54px]' 
             onClick={() => setIsModalOpen({ status: true, type: 'addTodo' })}
@@ -122,7 +122,7 @@ export default function DetailPage() {
                   <div className='flex flex-col gap-[10px]'>
                     {allTodo?.data.length && (allTodo?.data.map((item, index) => (
                       <div
-                        data-cy={`todo-item-${index}`}
+                        data-cy='todo-item'
                         key={index}
                         className='flex justify-between rounded-lg shadow-md px-7 py-[30px] bg-white'>
                         <div className='flex gap-5'>
@@ -140,7 +140,8 @@ export default function DetailPage() {
                           </button>
                         </div>
                         <button 
-                          type='button' 
+                          data-cy='todo-item-delete-button'
+                          type='button'
                           className='self-end'
                           onClick={() => handleDeleteTodo(item.id)}
                         >
