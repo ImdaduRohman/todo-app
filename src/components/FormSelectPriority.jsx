@@ -60,6 +60,7 @@ export default function FormSelectPriority({value, onChange, selected}) {
             <img src='/images/vector-priority.svg' alt='vector-priority' className='rotate-180'/>
         </Listbox.Button>
         <Listbox.Options
+          data-cy='modal-add-priority-item'
           as="ul"
           className="absolute left-0 w-[200px] origin-top-left bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-20"
         >
