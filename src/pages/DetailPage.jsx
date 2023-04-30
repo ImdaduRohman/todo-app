@@ -135,18 +135,13 @@ export default function DetailPage() {
               <img src='/images/todo-back-button.svg' alt='todo-back-button' />
             </Link>
             <input
+              data-cy='todo-title' 
               type='text'
               id='titleActivity' 
               value={detailActivity?.title} 
               onChange={handleInput} 
               className='bg-[#F4F4F4] truncate w-fit outline-none focus:ring-2 focus:ring-[#16ABF8] p-2 rounded-sm'
             />
-            <div
-              hidden
-              data-cy='todo-title' 
-              className='bg-[#F4F4F4] truncate w-fit outline-none focus:ring-2 focus:ring-[#16ABF8] p-2 rounded-sm'>
-                {detailActivity?.title}
-            </div>
             <label 
               data-cy='todo-title-edit-button'
               type='button'
