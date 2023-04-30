@@ -152,7 +152,6 @@ export default function DetailPage() {
               type='button'
               htmlFor='titleActivity'
               className='hover:opacity-70'
-              onClick={() => setEditTitle(true)}
             >
               <img src='/images/todo-title-edit-button.svg' alt='todo-title-edit-button.svg' />
             </label>
