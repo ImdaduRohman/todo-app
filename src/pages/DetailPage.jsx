@@ -190,7 +190,7 @@ export default function DetailPage() {
                             className='w-5 h-5 bg-red-400'
                           />
                           <img src={getPriority(item.priority)} alt={item.priority} />
-                          <div className={`text-lg text-[#111111] leading-[27px] font-medium ${item.is_active === 0 ? 'line-through text-[#888888]' : ''}`}>{item.title}</div>
+                          <div data-cy='todo-item-title' className={`text-lg text-[#111111] leading-[27px] font-medium ${item.is_active === 0 ? 'line-through text-[#888888]' : ''}`}>{item.title}</div>
                           <button type='button'>
                             <img src='/images/todo-title-edit-button.svg' alt='edit-todo' className='w-5 h-5' />
                           </button>
