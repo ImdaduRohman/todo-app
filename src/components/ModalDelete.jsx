@@ -42,7 +42,7 @@ export default function ModalDelete({
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
-        data-cy='modal-delete'
+        // data-cy='modal-delete'
         as="div"
         className="relative z-50"
         onClose={onClose}

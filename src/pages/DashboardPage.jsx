@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { useState } from "react";
 import Button from '../components/Button';
+import FullLoading from '../components/FullLoading';
 import ModalDelete from "../components/ModalDelete";
 import ModalSuccess from "../components/ModalSuccess";
-import FullLoading from '../components/FullLoading';
 
 export default function DashboardPage() {
   const [isModalOpen, setIsModalOpen] = useState({ status: false, type: '' });
@@ -39,10 +39,11 @@ export default function DashboardPage() {
   );
 
   const handleAddActivity = () => {
-    mutation.mutate({
+    const data = {
       title: 'New Activity',
       email: 'im@gmail.com',
-    });
+    }
+    mutation.mutate(data);
   };
 
   const handleDeleteActivity = (id) => {
