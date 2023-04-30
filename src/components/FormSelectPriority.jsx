@@ -40,7 +40,7 @@ const getPriority = (item) => {
 export default function FormSelectPriority({value, onChange, selected}) {
     return (
       <Listbox
-        data-cy='modal-add-priority-dropdown'
+        data-cy='modal-add-priority-item'
         value={value}
         onChange={onChange}
         className='relative lg:w-auto'
