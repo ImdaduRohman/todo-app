@@ -22,7 +22,6 @@ export default function DetailPage() {
   const [isModalOpen, setIsModalOpen] = useState({ status: false, type: '' });
   const [selectedTodo, setSelectedTodo] = useState(null);
   const [selectedSort, setSelectedSort] = useState('');
-  const [editTitle, setEditTitle] = useState(false);
   const { id } = useParams();
   const queryClient = useQueryClient();
 
@@ -135,28 +134,19 @@ export default function DetailPage() {
             <Link to='/' data-cy='todo-back-button' >
               <img src='/images/todo-back-button.svg' alt='todo-back-button' />
             </Link>
-            <button type='button'>
-              {
-                editTitle ? (
-                  <input
-                    data-cy='todo-title'
-                    type='text'
-                    id='titleActivity' 
-                    value={detailActivity?.title} 
-                    onChange={handleInput} 
-                    onBlur={() => setEditTitle(false)}
-                    className='bg-[#F4F4F4] truncate w-fit outline-none focus:ring-2 focus:ring-[#16ABF8] p-2 rounded-sm'
-                  />
-                ) : (
-                  <div 
-                    data-cy='todo-title' 
-                    onClick={() => setEditTitle(true)}
-                    className='bg-[#F4F4F4] truncate w-fit outline-none focus:ring-2 focus:ring-[#16ABF8] p-2 rounded-sm'>
-                      {detailActivity?.title}
-                  </div>
-                )
-              }
-            </button>
+            <input
+              type='text'
+              id='titleActivity' 
+              value={detailActivity?.title} 
+              onChange={handleInput} 
+              className='bg-[#F4F4F4] truncate w-fit outline-none focus:ring-2 focus:ring-[#16ABF8] p-2 rounded-sm'
+            />
+            <div
+              hidden
+              data-cy='todo-title' 
+              className='bg-[#F4F4F4] truncate w-fit outline-none focus:ring-2 focus:ring-[#16ABF8] p-2 rounded-sm'>
+                {detailActivity?.title}
+            </div>
             <label 
               data-cy='todo-title-edit-button'
               type='button'
