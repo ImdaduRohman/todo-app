@@ -40,9 +40,9 @@ export default function DetailPage() {
     setTitleActivity(detailActivity?.title)
 }, [detailActivity]);
 
-  const handleInput = (e) => {
-    setTitleActivity(e.target.value)
-  }
+  // useEffect(() => {
+  //   mutation.mutate({title: titleActivity});
+  // }, [titleActivity])
 
   const mutation = useMutation(
     (formData) => updateActivity(id, formData),
@@ -53,6 +53,11 @@ export default function DetailPage() {
     }
   );
 
+  const handleInput = (e) => {
+    setTitleActivity(e.target.value)
+    mutation.mutate({title: e.target.value});
+  }
+
   const mutationTodo = useMutation(
     (formData) => updateTodo(formData.id, formData),
     {
@@ -62,10 +67,10 @@ export default function DetailPage() {
     }
   );
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    mutation.mutate({title: titleActivity});
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   mutation.mutate({title: titleActivity});
+  // };
 
   const handleCheckBox = (item) => {
     const formData = {
@@ -88,7 +93,7 @@ export default function DetailPage() {
     <div className='bg-[#F4F4F4] min-h-screen'>
       <div className='px-[25px] md:px-[100px] lg:px-[150px] py-9'>
         <div className='flex justify-between mb-12'>
-          <form onSubmit={handleSubmit} className='text-4xl leading-[54px] text-[#111111] font-bold flex items-center gap-6'>
+          <form className='text-4xl leading-[54px] text-[#111111] font-bold flex items-center gap-6'>
             <Link to='/' data-cy='todo-back-button' >
               <img src='/images/todo-back-button.svg' alt='todo-back-button' />
             </Link>
