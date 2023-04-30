@@ -115,6 +115,7 @@ export default function DashboardPage() {
                 ) : (
                   <div data-cy='activity-empty-state' className='flex justify-center'>
                     <button 
+                      data-cy='activity-add-button'
                       onClick={() => handleAddActivity({
                         title: 'New Activity',
                         email: 'ir.imdadurohman@gmail.com',
