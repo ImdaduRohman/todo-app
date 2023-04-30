@@ -8,6 +8,7 @@ import FullLoading from "../components/FullLoading";
 import ModalDeleteTodo from "../components/ModalDeleteTodo";
 import ModalAddTodo from "../components/ModalAddTodo";
 import ModalSuccess from "../components/ModalSuccess";
+import SortList from "../components/SortList";
 
 const getPriority = (priority) => {
   if(priority === 'very-high') return '/images/priority-very-high.svg'
@@ -97,15 +98,18 @@ export default function DetailPage() {
               <img src='/images/todo-title-edit-button.svg' alt='todo-title-edit-button.svg' />
             </label>
           </form>
-          <Button 
-            data-cy='todo-add-button' 
-            variant="primary" 
-            className='w-[176px] h-[54px]' 
-            onClick={() => setIsModalOpen({ status: true, type: 'addTodo' })}
-          >
-            {/* {mutation.isLoading ? <FullLoading /> : "+ Tambah"} */}
-            + Tambah
-          </Button>
+          <div className='flex gap-[18px]'>
+            <SortList />
+            <Button 
+              data-cy='todo-add-button' 
+              variant='primary' 
+              className='w-[176px] h-[54px]' 
+              onClick={() => setIsModalOpen({ status: true, type: 'addTodo' })}
+            >
+              {/* {mutation.isLoading ? <FullLoading /> : "+ Tambah"} */}
+              + Tambah
+            </Button>
+          </div>
         </div>
 
         {
