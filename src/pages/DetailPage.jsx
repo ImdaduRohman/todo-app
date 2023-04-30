@@ -21,6 +21,8 @@ const getPriority = (priority) => {
 export default function DetailPage() {
   const [isModalOpen, setIsModalOpen] = useState({ status: false, type: '' });
   const [selectedTodo, setSelectedTodo] = useState(null);
+  const [selectedSort, setSelectedSort] = useState('');
+  console.log(selectedSort)
   const { id } = useParams();
   const queryClient = useQueryClient();
 
@@ -48,6 +50,8 @@ export default function DetailPage() {
     mutation.mutate({title: e.target.value});
   }
 
+  // console.log(allTodo.data)
+
   const mutationTodo = useMutation(
     (formData) => updateTodo(formData.id, formData),
     {
@@ -72,6 +76,55 @@ export default function DetailPage() {
 
   const handleDeleteSuccess = () => {
     setIsModalOpen({ status: true, type: 'deleteSuccess' })
+  }
+
+  const sortList = (sort, data) => {
+    let list = [...data];
+
+    if (sort) {
+      switch (sort) {
+        case "terbaru":
+          list;
+          break;
+        case "terlama":
+          list = list.reverse();
+          break;
+        case "a-z":
+          list = list.sort((a, b) => {
+            var x = a.title.toLowerCase(); // ignore upper and lowercase
+            var y = b.title.toLowerCase(); // ignore upper and lowercase
+            if(x < y) {
+              return -1;
+            }
+            if(x > y) {
+                return 1;
+            }
+            // names must be equal
+            return 0;
+          });
+        break;
+        case "z-a":
+          list = list.sort((a, b) => {
+            var x = b.title.toLowerCase(); // ignore upper and lowercase
+            var y = a.title.toLowerCase(); // ignore upper and lowercase
+            if(x < y) {
+              return -1;
+            }
+            if(x > y) {
+                return 1;
+            }
+            // names must be equal
+            return 0;
+          });
+        break;
+        default:
+          // eslint-disable-next-line no-self-assign
+          list = list;
+          break;
+      }
+    }
+  
+    return list;
   }
 
   return (
@@ -100,7 +153,11 @@ export default function DetailPage() {
             </label>
           </form>
           <div className='flex gap-[18px]'>
-            <SortList />
+            <SortList 
+              value={selectedSort}
+              onChange={setSelectedSort}
+              selected={selectedSort}
+            />
             <Button 
               data-cy='todo-add-button' 
               variant='primary' 
@@ -119,7 +176,7 @@ export default function DetailPage() {
               {
                 allTodo?.data.length ? (
                   <div className='flex flex-col gap-[10px]'>
-                    {allTodo?.data.length && (allTodo?.data.map((item, index) => (
+                    {allTodo?.data.length && (sortList(selectedSort, allTodo?.data).map((item, index) => (
                       <div
                         data-cy='todo-item'
                         key={index}
