@@ -46,10 +46,10 @@ export default function FormSelectPriority({value, onChange, selected}) {
         className='relative lg:w-auto'
         as='div'
       >
-        <Listbox.Button data-cy='modal-add-priority-item' as='div' className='flex justify-between px-[18px] py-[14px] w-[200px] bg-[#F4F4F4] ring-1 mt-[9px] text-slate-900 text-sm focus:ring-[#16ABF8] focus:ring-2 outline-none rounded-md ring-[#E5E5E5]'>
+        <Listbox.Button as='div' className='flex justify-between px-[18px] py-[14px] w-[200px] bg-[#F4F4F4] ring-1 mt-[9px] text-slate-900 text-sm focus:ring-[#16ABF8] focus:ring-2 outline-none rounded-md ring-[#E5E5E5]'>
             {
               selected ? (
-                <div className='flex gap-5' data-cy='modal-add-priority-item'>
+                <div className='flex gap-5'>
                   <img src={getPriority(selected).icon} alt='icon-priority' />
                   <div className='text-base text-[#111111]'>{getPriority(selected).title}</div>
                 </div>
