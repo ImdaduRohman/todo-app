@@ -69,10 +69,9 @@ export default function DashboardPage() {
             data-cy='activity-add-button' 
             variant="primary" 
             className='w-[176px] h-[54px]' 
-            onClick={handleAddActivity}
+            onClick={() => handleAddActivity()}
           >
-            {/* {mutation.isLoading ? <FullLoading /> : "+ Tambah"} */}
-            + Tambah
+            {mutation.isLoading ? <FullLoading /> : "+ Tambah"}
           </Button>
         </div>
         {
@@ -116,7 +115,7 @@ export default function DashboardPage() {
                   </div> 
                 ) : (
                   <div data-cy='activity-empty-state' className='flex justify-center'>
-                    <button onClick={handleAddActivity}>
+                    <button onClick={() => handleAddActivity()}>
                       <img 
                         src='/images/activity-empty-state.svg' 
                         alt='empty-state' 

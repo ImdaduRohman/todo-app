@@ -135,7 +135,7 @@ export default function DetailPage() {
             <Link to='/' data-cy='todo-back-button' >
               <img src='/images/todo-back-button.svg' alt='todo-back-button' />
             </Link>
-            <button type='button' onClick={() => setEditTitle(true)}>
+            <button type='button'>
               {
                 editTitle ? (
                   <input
@@ -150,6 +150,7 @@ export default function DetailPage() {
                 ) : (
                   <div 
                     data-cy='todo-title' 
+                    onClick={() => setEditTitle(true)}
                     className='bg-[#F4F4F4] truncate w-fit outline-none focus:ring-2 focus:ring-[#16ABF8] p-2 rounded-sm'>
                       {detailActivity?.title}
                   </div>
