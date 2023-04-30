@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { getDetailActivity, updateActivity } from "../lib/activity";
 import { useMutation, useQuery, useQueryClient } from "react-query";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "../components/Button";
 import { getAllTodo, updateTodo } from "../lib/todo";
 import FullLoading from "../components/FullLoading";
@@ -34,16 +34,6 @@ export default function DetailPage() {
     data: allTodo,
   } = useQuery('allTodo', () => getAllTodo(id));
 
-  const [titleActivity, setTitleActivity] = useState('');
-
-  useEffect(() => {
-    setTitleActivity(detailActivity?.title)
-}, [detailActivity]);
-
-  // useEffect(() => {
-  //   mutation.mutate({title: titleActivity});
-  // }, [titleActivity])
-
   const mutation = useMutation(
     (formData) => updateActivity(id, formData),
     {
@@ -54,7 +44,6 @@ export default function DetailPage() {
   );
 
   const handleInput = (e) => {
-    setTitleActivity(e.target.value)
     mutation.mutate({title: e.target.value});
   }
 
@@ -66,11 +55,6 @@ export default function DetailPage() {
       }
     }
   );
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   mutation.mutate({title: titleActivity});
-  // };
 
   const handleCheckBox = (item) => {
     const formData = {
@@ -101,7 +85,7 @@ export default function DetailPage() {
               data-cy='todo-title'
               type='text' 
               id='titleActivity' 
-              value={titleActivity || ''} 
+              value={detailActivity?.title || ''} 
               onChange={handleInput} 
               className='bg-[#F4F4F4] truncate w-fit outline-none focus:ring-2 focus:ring-[#16ABF8] p-2 rounded-sm'
             /> 
