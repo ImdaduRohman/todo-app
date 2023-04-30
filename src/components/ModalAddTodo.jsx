@@ -110,6 +110,7 @@ export default function ModalAddTodo({
                   <div className='h-[26px]'/>
                   <div data-cy='modal-add-priority-title' className='text-xs text-[#111111] leading-[18px] font-semibold'>PRIORITY</div>
                   <FormSelectPriority 
+                    data-cy='modal-add-priority-item'
                     value={selectedPriority}
                     onChange={setSelectedPriority}
                     selected={selectedPriority}
