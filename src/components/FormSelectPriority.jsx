@@ -60,13 +60,12 @@ export default function FormSelectPriority({value, onChange, selected}) {
             <img src='/images/vector-priority.svg' alt='vector-priority' className='rotate-180'/>
         </Listbox.Button>
         <Listbox.Options
-          data-cy='modal-add-priority-item'
           as="ul"
           className="absolute left-0 w-[200px] origin-top-left bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-20"
         >
           {
             options.map((item, index) => (
-              <Listbox.Option as="div" data-cy='modal-add-priority-item' value={item.value} key={index}>
+              <Listbox.Option as="div" value={item.value} key={index}>
                 {({active, selected}) => (
                   <li
                     className={`${active ? "bg-blue-50" : ""} ${
