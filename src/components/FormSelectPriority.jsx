@@ -46,7 +46,7 @@ export default function FormSelectPriority({value, onChange, selected}) {
         className='relative lg:w-auto'
         as='div'
       >
-        <Listbox.Button as='div' className='flex justify-between px-[18px] py-[14px] w-[200px] bg-[#F4F4F4] ring-1 mt-[9px] text-slate-900 text-sm focus:ring-[#16ABF8] focus:ring-2 outline-none rounded-md ring-[#E5E5E5]'>
+        <Listbox.Button as='div' data-cy='modal-add-priority-item' className='flex justify-between px-[18px] py-[14px] w-[200px] bg-[#F4F4F4] ring-1 mt-[9px] text-slate-900 text-sm focus:ring-[#16ABF8] focus:ring-2 outline-none rounded-md ring-[#E5E5E5]'>
             {
               selected ? (
                 <div className='flex gap-5'>
