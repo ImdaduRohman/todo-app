@@ -14,6 +14,8 @@ export default function ModalDeleteTodo({
   idActivity,
   // eslint-disable-next-line react/prop-types
   ref = undefined,
+    // eslint-disable-next-line react/prop-types
+  respons,
 }) {
   const queryClient = useQueryClient();
 
@@ -34,6 +36,7 @@ export default function ModalDeleteTodo({
   const handleDelete = (id) => {
     deleteMutation.mutate(id);
     onClose();
+    respons();
   };
 
   return (

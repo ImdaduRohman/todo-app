@@ -7,6 +7,7 @@ import { getAllTodo, updateTodo } from "../lib/todo";
 import FullLoading from "../components/FullLoading";
 import ModalDeleteTodo from "../components/ModalDeleteTodo";
 import ModalAddTodo from "../components/ModalAddTodo";
+import ModalSuccess from "../components/ModalSuccess";
 
 const getPriority = (priority) => {
   if(priority === 'very-high') return '/images/priority-very-high.svg'
@@ -77,6 +78,10 @@ export default function DetailPage() {
   const handleDeleteTodo = (id) => {
     setSelectedTodo(id)
     setIsModalOpen({ status: true, type: 'deleteTodo' })
+  }
+
+  const handleDeleteSuccess = () => {
+    setIsModalOpen({ status: true, type: 'deleteSuccess' })
   }
 
   return (
@@ -171,11 +176,16 @@ export default function DetailPage() {
         isOpen={isModalOpen.status && isModalOpen.type === 'deleteTodo' && selectedTodo !== null}
         onClose={() => setIsModalOpen({ status: false, type: '' })}
         idActivity={selectedTodo}
+        respons={handleDeleteSuccess}
       />
       <ModalAddTodo
         isOpen={isModalOpen.status && isModalOpen.type === 'addTodo'}
         onClose={() => setIsModalOpen({ status: false, type: '' })}
         idActivity={id}
+      />
+      <ModalSuccess 
+        isOpen={isModalOpen.status && isModalOpen.type === 'deleteSuccess'}
+        onClose={() => setIsModalOpen({ status: false, type: '' })}
       />
     </div>
   )

@@ -42,7 +42,7 @@ export default function ModalSuccess({
             >
               <Dialog.Panel data-cy='modal-information' className='w-full max-w-md overflow-hidden rounded-xl py-5 px-7 bg-white text-left align-middle shadow-xl transition-all'>
                 <div className='flex gap-3'>
-                  <img data-cy='modal-information-icon' src='images/delete-success.svg' alt='delete-success' />
+                  <img data-cy='modal-information-icon' src='/images/delete-success.svg' alt='delete-success' />
                   <div data-cy='modal-information-title' className='text-sm text-[#111111] leading-[21px] font-medium'>Activity berhasil dihapus</div>
                 </div>
               </Dialog.Panel>
