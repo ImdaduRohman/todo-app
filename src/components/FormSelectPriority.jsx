@@ -40,7 +40,7 @@ const getPriority = (item) => {
 export default function FormSelectPriority({value, onChange, selected}) {
     return (
       <Listbox
-        data-cy='modal-add-priority-item'
+        data-cy='modal-add-priority-dropdown'
         value={value}
         onChange={onChange}
         className='relative lg:w-auto'
@@ -65,10 +65,9 @@ export default function FormSelectPriority({value, onChange, selected}) {
         >
           {
             options.map((item, index) => (
-              <Listbox.Option as="div" value={item.value} key={index}>
+              <Listbox.Option as="div" data-cy='modal-add-priority-item' value={item.value} key={index}>
                 {({active, selected}) => (
                   <li
-                    data-cy='modal-add-priority-item'
                     className={`${active ? "bg-blue-50" : ""} ${
                       selected ? "bg-blue-100" : ""
                     } group flex gap-5 w-full items-center px-[18px] py-[10px] text-sm text-[#4A4A4A] cursor-pointer border-b border-[#E5E5E5]`}
