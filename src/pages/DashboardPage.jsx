@@ -71,7 +71,8 @@ export default function DashboardPage() {
             className='w-[176px] h-[54px]' 
             onClick={handleAddActivity}
           >
-            {mutation.isLoading ? <FullLoading /> : "+ Tambah"}
+            {/* {mutation.isLoading ? <FullLoading /> : "+ Tambah"} */}
+            + Tambah
           </Button>
         </div>
         {
