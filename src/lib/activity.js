@@ -3,7 +3,7 @@ import axios from 'axios';
 const BASE_URL = 'https://todo.api.devcode.gethired.id';
 
 export const getAllActivity = async () => await axios
-  .get(`${BASE_URL}/activity-groups?email=im@gmail.com`, {
+  .get(`${BASE_URL}/activity-groups?email=ir.imdadurohman@gmail.com`, {
   })
   .then((res) => res.data);
 

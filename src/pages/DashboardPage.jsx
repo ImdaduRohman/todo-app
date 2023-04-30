@@ -6,7 +6,6 @@ import Button from '../components/Button';
 import FullLoading from '../components/FullLoading';
 import ModalDelete from "../components/ModalDelete";
 import ModalSuccess from "../components/ModalSuccess";
-import axios from 'axios';
 
 export default function DashboardPage() {
   const [isModalOpen, setIsModalOpen] = useState({ status: false, type: '' });
@@ -39,25 +38,9 @@ export default function DashboardPage() {
     }
   );
 
-  const handleAddActivity = async () => {
-    const post = { title: 'New Activity',
-    email: 'im@gmail.com', }
-    try {
-      const res = await axios.post('https://todo.api.devcode.gethired.id/activity-groups', post)
-      console.log(res.data)
-      queryClient.invalidateQueries('allActivity')
-    } catch (e) {
-      alert(e)
-    }
-  }
-
-  // const handleAddActivity = () => {
-  //   const data = {
-  //     title: 'New Activity',
-  //     email: 'im@gmail.com',
-  //   }
-  //   mutation.mutate(data);
-  // };
+  const handleAddActivity = (data) => {
+    mutation.mutate(data);
+  };
 
   const handleDeleteActivity = (id) => {
     setSelectedActivity(id)
@@ -82,10 +65,12 @@ export default function DashboardPage() {
             data-cy='activity-add-button' 
             variant="primary" 
             className='w-[176px] h-[54px]' 
-            onClick={() => handleAddActivity()}
+            onClick={() => handleAddActivity({
+              title: 'New Activity',
+              email: 'ir.imdadurohman@gmail.com',
+            })}
           >
-            {/* {mutation.isLoading ? <FullLoading /> : "+ Tambah"} */}
-            + Tambah
+            {mutation.isLoading ? <FullLoading /> : "+ Tambah"}
           </Button>
         </div>
         {
@@ -129,7 +114,12 @@ export default function DashboardPage() {
                   </div> 
                 ) : (
                   <div data-cy='activity-empty-state' className='flex justify-center'>
-                    <button onClick={() => handleAddActivity()}>
+                    <button 
+                      onClick={() => handleAddActivity({
+                        title: 'New Activity',
+                        email: 'ir.imdadurohman@gmail.com',
+                      })}
+                    >
                       <img 
                         src='/images/activity-empty-state.svg' 
                         alt='empty-state' 
