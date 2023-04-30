@@ -46,7 +46,7 @@ export default function SortList({value, onChange}) {
         >
           {
             options.map((item, index) => (
-              <Listbox.Option as="div" data-cy='data-cy=sort-selection' value={item.value} key={index}>
+              <Listbox.Option as="div" data-cy='sort-selection' value={item.value} key={index}>
                 {({active, selected}) => (
                   <li
                     className={`${active ? "bg-blue-50" : ""} ${
