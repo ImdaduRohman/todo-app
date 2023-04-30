@@ -68,7 +68,7 @@ export default function FormSelectPriority({value, onChange, selected}) {
               <Listbox.Option as="div" value={item.value} key={index}>
                 {({active, selected}) => (
                   <li
-                    data-cy={`modal-add-priority-${item.value}`}
+                    data-cy='modal-add-priority-item'
                     className={`${active ? "bg-blue-50" : ""} ${
                       selected ? "bg-blue-100" : ""
                     } group flex gap-5 w-full items-center px-[18px] py-[10px] text-sm text-[#4A4A4A] cursor-pointer border-b border-[#E5E5E5]`}
