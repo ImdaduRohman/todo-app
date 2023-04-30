@@ -40,13 +40,13 @@ const getPriority = (item) => {
 export default function FormSelectPriority({value, onChange, selected}) {
     return (
       <Listbox
-        data-cy='modal-add-priority-item'
+        data-cy='modal-add-priority-dropdown'
         value={value}
         onChange={onChange}
         className='relative lg:w-auto'
         as='div'
       >
-        <Listbox.Button as='div' className='flex justify-between px-[18px] py-[14px] w-[200px] bg-[#F4F4F4] ring-1 mt-[9px] text-slate-900 text-sm focus:ring-[#16ABF8] focus:ring-2 outline-none rounded-md ring-[#E5E5E5]'>
+        <Listbox.Button data-cy='modal-add-priority-item' as='div' className='flex justify-between px-[18px] py-[14px] w-[200px] bg-[#F4F4F4] ring-1 mt-[9px] text-slate-900 text-sm focus:ring-[#16ABF8] focus:ring-2 outline-none rounded-md ring-[#E5E5E5]'>
             {
               selected ? (
                 <div className='flex gap-5' data-cy='modal-add-priority-item'>
