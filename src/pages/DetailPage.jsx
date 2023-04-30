@@ -139,6 +139,7 @@ export default function DetailPage() {
               {
                 editTitle ? (
                   <input
+                    data-cy='todo-title'
                     type='text'
                     id='titleActivity' 
                     value={detailActivity?.title} 

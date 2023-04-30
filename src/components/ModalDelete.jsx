@@ -42,7 +42,7 @@ export default function ModalDelete({
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
-        // data-cy='modal-delete'
+        data-cy='modal-delete'
         as="div"
         className="relative z-50"
         onClose={onClose}
@@ -71,7 +71,7 @@ export default function ModalDelete({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel data-cy='modal-delete' className="w-full max-w-md flex flex-col p-10 pb-6 gap-10 overflow-hidden rounded-xl bg-white text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="w-full max-w-md flex flex-col p-10 pb-6 gap-10 overflow-hidden rounded-xl bg-white text-left align-middle shadow-xl transition-all">
                 <img data-cy='modal-delete-icon' src="images/modal-delete-icon.svg" alt="modal-delete-icon" className="mx-auto" />
                 <div data-cy='modal-delete-title' className="text-lg leading-[27px] font-medium text-center">
                   <div>Apakah anda yakin menghapus activity</div>
